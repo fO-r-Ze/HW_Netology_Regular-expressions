@@ -1,4 +1,3 @@
-from pprint import pprint
 import csv
 import re
 
@@ -8,7 +7,6 @@ with open("phonebook_raw.csv", encoding="utf-8") as f:
   contacts_list = list(rows)
 
 pattern = r'^(\+7|8)?\D*(\d{3})\D*(\d{3})\D*(\d{2})\D*(\d{2})(?:\D*(\d{1,10}))?\D*$'
-# replacement = r'+7(\2)\3-\4-\5 доб.\6'
 
 def replacement(match):
     base = f"+7({match.group(2)}){match.group(3)}-{match.group(4)}-{match.group(5)}"
@@ -32,36 +30,6 @@ for contact in contacts_list:
     except IndexError:
         surname = ""
     new_list.append([last_name, first_name, surname, organization, position, phone, email])
-pprint(new_list)
-# for row in contacts_list[0]:
-#     new_list.append(row)
-# for i in contacts_list[1:]:
-#     last_name = i[0].split()
-#     organization = i[3]
-#     position = i[4]
-#     phone = re.sub(pattern, replacement, i[5])
-#     email = i[6]
-#     if len(last_name) == 3:
-#         first_name = last_name[1]
-#         surname = last_name[2]
-#         last_name = last_name[0]
-#         new_list.append([last_name, first_name, surname, organization, position, phone, email])
-#     elif len(last_name) == 2:
-#         first_name = last_name[1]
-#         last_name = last_name[0]
-#         surname = i[2]
-#         new_list.append([last_name, first_name, surname, organization, position, phone, email])
-#     elif len(i[1].split()) == 2:
-#         last_name = last_name[0]
-#         first_name = i[1].split()[0]
-#         surname = i[1].split()[1]
-#         new_list.append([last_name, first_name, surname, organization, position, phone, email])
-#     else:
-#         last_name = last_name[0]
-#         first_name = i[1]
-#         surname = i[2]
-#         new_list.append([last_name, first_name, surname, organization, position, phone, email])
-# pprint(new_list)
 
 # TODO 2: сохраните получившиеся данные в другой файл
 # код для записи файла в формате CSV
