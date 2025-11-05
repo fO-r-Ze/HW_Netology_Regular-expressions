@@ -29,25 +29,8 @@ for contact in contacts_list:
 
     if len(fio_parts) == 3:
         lastname, firstname, surname = fio_parts[0], fio_parts[1], fio_parts[2]
-    # elif len(fio_parts) == 2:
-    #     lastname, firstname, surname = fio_parts[0], fio_parts[1], ''
-    # elif len(fio_parts) == 1:
-    #     lastname, firstname, surname = fio_parts[0], '', ''
-    # else:
-    #     lastname, firstname, surname = '', '', ''
 
-    # current_key = (lastname, firstname, surname)
     final_key = (lastname, firstname, surname)
-
-    # existing_key = None
-    # for key in merged_contacts:
-    #     if key[0] == lastname and key[1] == firstname:
-    #         if len(key[2]) > len(surname):
-    #             existing_key = key
-    #             break
-    #
-    # final_key = existing_key if existing_key else current_key
-
 
     if final_key not in merged_contacts:
         merged_contacts[final_key] = {
